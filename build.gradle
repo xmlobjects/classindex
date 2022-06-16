@@ -5,7 +5,7 @@ plugins {
     id 'io.github.gradle-nexus.publish-plugin' version '1.1.0'
 }
 
-group 'org.xmlobjects.classindex'
+group 'org.xmlobjects'
 version '3.11.1-SNAPSHOT'
 description 'Fork of https://github.com/atteo/classindex that supports Java modules'
 
