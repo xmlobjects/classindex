@@ -1,9 +1,13 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
+    id 'signing'
+    id 'io.github.gradle-nexus.publish-plugin' version '1.1.0'
 }
 
-group 'org.xmlobjects'
+group 'org.xmlobjects.classindex'
 version '3.11.1-SNAPSHOT'
+description 'Fork of https://github.com/atteo/classindex that supports Java modules'
 
 java {
     toolchain {
@@ -20,4 +24,53 @@ repositories {
 javadoc {
     failOnError = false
     options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            pom {
+                name = project.name
+                description = project.description
+                url = 'https://github.com/atteo/classindex'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution = 'repo'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'sentinel'
+                        name = 'Sławek Piotrowski'
+                        email = 'sentinel@atteo.com'
+                        roles = ['architect', 'developer']
+                    }
+                    developer {
+                        id = 'clausnagel'
+                        name = 'Claus Nagel'
+                        email = 'claus.nagel@gmail.com'
+                        roles = ['developer']
+                        timezone = '+1'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/atteo/classindex'
+                    connection = 'scm:git:https://github.com/atteo/classindex.git'
+                }
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+nexusPublishing {
+    repositories {
+        sonatype()
+    }
 }
