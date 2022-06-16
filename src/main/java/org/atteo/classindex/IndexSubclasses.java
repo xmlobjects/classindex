@@ -38,7 +38,7 @@ import org.atteo.classindex.processor.ClassIndexProcessor;
  * what {@link ServiceLoader} expects. So if all the subclasses have a zero-argument constructor
  * you can use {@link ServiceLoader}. For subclasses of given package index file is named
  * "jaxb.index", it is located inside the package folder and it's format is compatible with
- * what {@link javax.xml.bind.JAXBContext#newInstance(String) } expects.
+ * what javax.xml.bind.JAXBContext#newInstance(String) expects.
  * </p>
  */
 @Documented
