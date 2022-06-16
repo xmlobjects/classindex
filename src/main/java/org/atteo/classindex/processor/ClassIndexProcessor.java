@@ -345,26 +345,21 @@ public class ClassIndexProcessor extends AbstractProcessor {
 	private void storeSubclass(TypeElement superTypeElement, TypeElement rootElement) throws IOException {
 		if (indexedSuperclasses.contains(superTypeElement.getQualifiedName().toString())) {
 			putElement(subclassMap, superTypeElement.getQualifiedName().toString(), rootElement);
-		} else if (annotationDriven) {
+		} else if (annotationDriven && isValidSubclass(rootElement)) {
 			IndexSubclasses indexSubclasses = superTypeElement.getAnnotation(IndexSubclasses.class);
 			if (indexSubclasses != null) {
 				putElement(subclassMap, superTypeElement.getQualifiedName().toString(), rootElement);
-
 				if (indexSubclasses.storeJavadoc()) {
 					storeJavadoc(rootElement);
 				}
 			}
-		}
-		if (indexedSuperclasses.contains(superTypeElement.getQualifiedName().toString())
-				|| (annotationDriven && superTypeElement.getAnnotation(IndexSubclasses.class) != null)) {
-			putElement(subclassMap, superTypeElement.getQualifiedName().toString(), rootElement);
 		}
 	}
 
 	private void storeClassFromPackage(PackageElement packageElement, TypeElement rootElement) throws IOException {
 		if (indexedPackages.contains(packageElement.getQualifiedName().toString())) {
 			putElement(packageMap, packageElement.getQualifiedName().toString(), rootElement);
-		} else if (annotationDriven) {
+		} else if (annotationDriven && isValidSubclass(rootElement)) {
 			IndexSubclasses indexSubclasses = packageElement.getAnnotation(IndexSubclasses.class);
 			if (indexSubclasses != null) {
 				String simpleName = getShortName(rootElement);
@@ -376,6 +371,10 @@ public class ClassIndexProcessor extends AbstractProcessor {
 				}
 			}
 		}
+	}
+
+	private boolean isValidSubclass(TypeElement typeElement) {
+		return !typeElement.getKind().isInterface();
 	}
 
 	private <K> void putElement(Map<K, Set<String>> map, K keyElement, TypeElement valueElement) {
