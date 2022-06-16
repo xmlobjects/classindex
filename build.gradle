@@ -7,7 +7,7 @@ plugins {
 
 group 'org.xmlobjects'
 version '3.11.1-SNAPSHOT'
-description 'Fork of https://github.com/atteo/classindex that supports Java modules'
+description 'Fork of https://github.com/atteo/classindex that turns classindex into a Java module'
 
 java {
     toolchain {
@@ -15,10 +15,6 @@ java {
     }
     withJavadocJar()
     withSourcesJar()
-}
-
-repositories {
-    mavenCentral()
 }
 
 javadoc {
