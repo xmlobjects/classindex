@@ -1,7 +1,15 @@
-target/
-bin/
-.settings/
-.direct_classpath
+.gradle/
+gradle.properties
+build/
+
+# Eclipse
 .classpath
 .project
-.config/
+.settings/
+bin/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+out/

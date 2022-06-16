@@ -1,0 +1,23 @@
+plugins {
+    id 'java-library'
+}
+
+group 'org.xmlobjects'
+version '3.11.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+    withJavadocJar()
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+}
+
+javadoc {
+    failOnError = false
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
