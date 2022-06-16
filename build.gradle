@@ -6,8 +6,8 @@ plugins {
 }
 
 group 'org.xmlobjects'
-version '3.11.1'
-description 'Fork of https://github.com/atteo/classindex that turns classindex into a Java module'
+version '3.11.2'
+description 'Fork of https://github.com/atteo/classindex'
 
 java {
     toolchain {
