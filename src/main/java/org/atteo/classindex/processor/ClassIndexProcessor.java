@@ -23,7 +23,7 @@ import javax.lang.model.element.*;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
-import javax.lang.model.util.ElementScanner9;
+import javax.lang.model.util.ElementScanner14;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
@@ -128,7 +128,7 @@ public class ClassIndexProcessor extends AbstractProcessor {
 					continue;
 				}
 				final PackageElement packageElement = getPackage(element);
-				element.accept(new ElementScanner9<Void, Void>() {
+				element.accept(new ElementScanner14<Void, Void>() {
 					@Override
 					public Void visitType(TypeElement typeElement, Void o) {
 						try {
