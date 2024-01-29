@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'org.xmlobjects'
-version '3.13.0-SNAPSHOT'
+version '3.13.0'
 description 'Fork of https://github.com/atteo/classindex'
 
 java {
