@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [3.13.1] - 2025-01-19
+### Changed
+- Updated Gradle to 8.12.
+
 ## [3.13.0] - 2024-01-29
 ### Changed
 - **Breaking:** Java 17 is now the minimum required version for using this fork of classindex.
@@ -24,6 +28,7 @@
 ## 3.11 and before
 Changes for version 3.11 and before are documented in the [original repository](https://github.com/atteo/classindex/blob/master/CHANGES.md).
 
-[Unreleased]: https://github.com/xmlobjects/classindex/compare/v3.13.0..HEAD
+[Unreleased]: https://github.com/xmlobjects/classindex/compare/v3.13.1..HEAD
+[3.13.1]: https://github.com/xmlobjects/classindex/releases/tag/v3.13.1
 [3.13.0]: https://github.com/xmlobjects/classindex/releases/tag/v3.13.0
 [3.12.0]: https://github.com/xmlobjects/classindex/releases/tag/v3.12.0

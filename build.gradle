@@ -2,11 +2,11 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'signing'
-    id 'io.github.gradle-nexus.publish-plugin' version '1.3.0'
+    id 'io.github.gradle-nexus.publish-plugin' version '2.0.0'
 }
 
 group = 'org.xmlobjects'
-version = '3.13.0'
+version = '3.13.1'
 description = 'Fork of https://github.com/atteo/classindex'
 
 java {
